@@ -3,6 +3,9 @@
 
 import pandas as pd
 from nltk.corpus import stopwords
+import nltk
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 
 file_path = 'Tweets.csv'
 df = pd.read_csv(file_path, encoding='utf-8')
@@ -13,6 +16,7 @@ df['text'] = df['text'].apply(lambda x: x.lower())
 df['text'] = df['text'].str.replace(r'http\S+|www\S+|https\S+', '', case=False)
 df['text'] = df['text'].str.replace(r'@\\w+', '', case=False)
 df['text'] = df['text'].str.replace(r'#\\w+', '', case=False)
+df['text'] = df['text'].apply(lambda x: ' '.join([lemmatizer.lemmatize(word) for word in x.split()]))
 
 
 stop_words = set(stopwords.words('english'))
