@@ -36,15 +36,15 @@ joblib.dump(svm_model, 'svm_model.pkl')
 joblib.dump(vectorizer, 'tfidf_vectorizer.pkl')
 joblib.dump(label_encoder, 'label_encoder.pkl')
 
-#                 precision    recall  f1-score   support
+#                   precision    recall  f1-score   support
 
-#     negative       0.76      0.55      0.63      1572
-#      neutral       0.61      0.80      0.70      2236
-#     positive       0.81      0.69      0.75      1688
+#     negative       0.71      0.62      0.66      1572
+#      neutral       0.65      0.75      0.69      2236
+#     positive       0.79      0.73      0.76      1688
 
 #     accuracy                           0.70      5496
-#    macro avg       0.73      0.68      0.69      5496
-# weighted avg       0.72      0.70      0.69      5496
+#    macro avg       0.72      0.70      0.71      5496
+# weighted avg       0.71      0.70      0.71      5496
 
 # Negative Class: Needs better recall. Consider oversampling negative cases or adjusting class weights.
 
